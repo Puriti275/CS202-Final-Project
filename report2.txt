@@ -1,0 +1,60 @@
+Time Log:
+- 5/6/26: 3 hours fixing the .h file and refactoring the structure of the code
+- 5/7/26: 3 hours debugging code and finishing core game logic
+
+What went well:
+What went well was developing and thinking of helper functions that would make life way easier
+when it comes to coding the project. For example, the stringToMove function was a nice helper
+function that I thought of when I ran into the problem of converting the text from the user into
+something usable by the class. 
+
+What went less well:
+The planning went less well for sure. When I had the idea for this project, I wanted to make sure
+that I didn't copy off of anyone else's chess code, as chess is a very popular topic within the
+realm of computer science, and there are many established ways to do it. A core weakness I've learned
+about myself this semester during this project and throughout this semester is that I tend to over-extend.
+I'm very ambitious, but it leads to me starting things and not finishing them to fruition, or doing many
+things but doing them poorly. For example, due to a lack of time from all of my other extracurriculars
+and classes, I can't implement proper safety handling for move checking. When you make an incorrect move,
+the game moves on to the next player. The scope of chess is very, very, very large, and given proper time
+and planning, I'm sure I could've made a very intuitive chess game that's playable in the terminal with all
+the correct moves and restrictions. But due to my over-extending, I wasn't able to deliver a full chess product.
+
+What you may have learned:
+Planning goes a long, long way. Had I properly planned out the structure of how my code would model the game of chess,
+the coding process would've went by much quicker. For example, each Cell struct had a field as a void * that was supposed
+to point to the piece occupying it. Due to how difficult it became to idealize how I would utilize void *'s in this project,
+I decided to switch to a Piece * instead, and assign it nullptr if the cell was empty. Of course, you can't always see
+the full picture when planning out a project, and mistakes are bound to happen (hence debugging), but with efficient
+planning of your project, a lot of time spent debugging and restructuring your program can be saved. 
+
+Why you should get full discretionary points:
+While not a full chess game with all of the proper restrictions (such as piece obstruction and checkmate), the game still
+able to be played by players who understand the game of chess. Players can differentiate between black and white pieces,
+play until checkmate (determined by themselves), and all pieces will only move to squares they are allowed to move to.
+This project contains good use of .h files, classes, and memory management with pointers (didn't need to use rule of three).
+Taking inspiration from the CardDeck lab we did earlier in the semester to simplify the main.cpp file, and implementing all
+of the logic of the program in a .cpp file, shows good file management and clean practices.
+- Why Vectors?:
+    Vectors were used in this project and not any of the other data structures taught in this class due to how unnecessary
+    hashmaps, hashsets, binary trees, heaps, AVL trees, or BSTs would've been for this assignment. Considering this project
+    is very similar to the Connect4 Lab we've completed, implementing the previously mentioned data structures would've been
+    overkill for this project. Vectors fit this project well due to this program not taking in mass amounts of data. Also,
+    we are not searching for any elements within the vectors, which would be O(n) time. We are only accessing very specific
+    elements within our vectors, which give us O(1) time already with no extra overhead costs. We don't have mass amounts of
+    data that need to be looked up fast with a hash table, nor do we need to search for anything within a large list using A
+    BST, AVL Tree, or heap. There's no insertion or deletion within our program outside of the initialization of the ChessBoard
+    class, so Linked Lists aren't justified. Using Arrays, while they could work well with this use case, only add more manual
+    work with additional, unncessary memory management. Using Vectors over Arrays simplifies memory management, getting rid of
+    pointer arithmetic and manual sizing. For only 64 cells, C++ is more than capable of making the calculations needed to ensure
+    this program runs instantly every time. I would like to acknowledge that if I were to implement a chess engine that would require
+    something like a vector<moves> generateMoves(ChessBoard board) function, then searching for correct moves would be very important.
+    A hash table to store quickly store all of the possible moves would work well. AVL trees or BSTs would work to search for specific
+    moves in O(log n) time. However, due to the scope of this project, Vectors outshine all of the usecases of the other data structures.
+
+Conclusion:
+Overall, I'm very thankful to have had the opportunity to learn about data structures & algorithms in C++. While the langauge
+isn't mainstream in many jobs, unlike high level langauges like Python or JavaScript, learning this language creates a great
+foundation as a programmer who should be able to code in any other langauge higher level than C. Thank you to all the TAs and
+Dr. Emrich for having such an impact on my educational journey, and my develompent as a programmer. Hopefully you find this
+project fun!
